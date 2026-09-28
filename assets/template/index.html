@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>{{BRAND}}: <!-- what they sell, where --></title>
+  <meta name="description" content="<!-- one sentence: offer + how to order/book -->" />
+  <meta name="theme-color" content="#0B0B0C" />
+  <meta property="og:title" content="{{BRAND}}" />
+  <meta property="og:image" content="assets/img/poster.webp" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Pick a display + body + mono trio that fits the client, then update --display/--body/--mono in css/styles.css -->
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="js/config.js"></script>
+</head>
+<body class="is-loading">
+
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <p class="preloader__brand">{{BRAND}}</p>
+    <div class="preloader__bar"><i id="preloaderBar"></i></div>
+    <p class="preloader__pct"><span id="preloaderPct">0</span>%</p>
+  </div>
+
+  <header class="nav" id="nav">
+    <a href="#top" class="logo" aria-label="{{BRAND}} home"><span class="logo__word">{{BRAND}}</span></a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#offer">Offer</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <div class="nav__actions">
+      <a class="btn btn--accent btn--sm" href="#offer"><span class="hide-xs">Order </span>now</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ============ HERO: chapters fade in/out over the film between data-in and data-out (scroll progress 0–1) ============ -->
+    <section class="hero" id="hero" aria-label="{{BRAND}}">
+      <div class="hero__stage">
+        <canvas class="hero__canvas" id="heroCanvas" aria-hidden="true"></canvas>
+        <div class="hero__shade" aria-hidden="true"></div>
+
+        <div class="chapter chapter--intro" data-in="0" data-out="0.14">
+          <p class="eyebrow"><span class="dot"></span> Category · Category · City</p>
+          <h1 class="hero__title">Short, bold<br /><em>promise.</em></h1>
+          <p class="hero__lede">One or two sentences on what makes this business worth choosing, in their customers' words.</p>
+          <div class="hero__cta">
+            <a href="#offer" class="btn btn--accent">Primary action</a>
+            <a href="#" class="btn btn--ghost" data-wa>WhatsApp<span class="hide-sm"> us</span></a>
+          </div>
+        </div>
+
+        <div class="chapter chapter--card chapter--left" data-in="0.22" data-out="0.4">
+          <p class="card__tag">01 / First beat</p>
+          <h2>Two-line<br /><em>headline.</em></h2>
+          <dl class="facts">
+            <div><dt>Fact</dt><dd>12 hrs</dd></div>
+            <div><dt>Fact</dt><dd>650 °C</dd></div>
+            <div><dt>Fact</dt><dd>1,400+</dd></div>
+          </dl>
+        </div>
+
+        <div class="chapter chapter--card chapter--right" data-in="0.48" data-out="0.66">
+          <p class="card__tag">02 / Second beat</p>
+          <h2>Two-line<br /><em>headline.</em></h2>
+          <dl class="facts">
+            <div><dt>Fact</dt><dd>9H</dd></div>
+            <div><dt>Fact</dt><dd>10 yrs</dd></div>
+            <div><dt>Fact</dt><dd>20 min</dd></div>
+          </dl>
+        </div>
+
+        <div class="chapter chapter--final" data-in="0.88" data-out="1.01">
+          <h2 class="hero__final">Closing line<br /><em>over the last frame.</em></h2>
+          <a href="#offer" class="btn btn--accent btn--lg">Call to action →</a>
+        </div>
+
+        <div class="hero__hint" id="heroHint" aria-hidden="true"><span>Scroll</span><i></i></div>
+      </div>
+    </section>
+
+    <!-- ============ CONTENT: replace with the business's sections (menu / shop / services / deals / quote / gallery / reviews) ============ -->
+    <section class="section" id="offer">
+      <header class="section__head reveal">
+        <p class="eyebrow">Section label</p>
+        <h2 class="section__title">Section<br /><em>title.</em></h2>
+      </header>
+      <div class="grid" id="offerGrid"></div>
+    </section>
+
+    <section class="section" id="gallery">
+      <header class="section__head reveal">
+        <p class="eyebrow">Gallery</p>
+        <h2 class="section__title">Show the<br /><em>work.</em></h2>
+      </header>
+      <div class="masonry" id="masonry"></div>
+    </section>
+
+    <section class="section visit" id="visit">
+      <header class="section__head reveal">
+        <p class="eyebrow">Visit</p>
+        <h2 class="section__title">Come by.<br /><em>Or we come to you.</em></h2>
+      </header>
+      <dl class="visit__info reveal">
+        <div><dt>Address</dt><dd data-address></dd></div>
+        <div><dt>Hours</dt><dd>Every day · 12 PM – 12 AM</dd></div>
+        <div><dt>WhatsApp</dt><dd><a href="#" target="_blank" rel="noopener" data-wa data-wa-text></a></dd></div>
+      </dl>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="logo__word">{{BRAND}}</p>
+    <p class="footer__small">© 2026 {{BRAND}}.</p>
+  </footer>
+
+  <a class="fab-wa" href="#" target="_blank" rel="noopener" aria-label="WhatsApp {{BRAND}}" data-wa>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.7 14.9L2 22l5.3-1.4A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 .9c.3.1.5.2.5.3.1.2.1.8-.2 1.4Z"/></svg>
+  </a>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js" defer></script>
+  <script src="js/data.js" defer></script>
+  <script src="js/hero.js" defer></script>
+  <script src="js/app.js" defer></script>
+</body>
+</html>
