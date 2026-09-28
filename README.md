@@ -77,6 +77,7 @@ scripts/
   new-site.sh            scaffold a site from the template
   audit.mjs              Playwright layout audit (mobile + desktop), report + screenshots
   frame-sheet.sh         gridded contact sheet of the film with a time → progress table
+  hero-strip.mjs         screenshots of the live hero at chosen scroll points, tiled and labelled
   fetch-unsplash.sh      download free Unsplash photos by ID
   photo-sheet.py         labelled contact sheet of a photo folder
   to-webp.py             resize / crop to WebP around a focal point

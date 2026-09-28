@@ -36,6 +36,25 @@ Chapter windows are `data-in` / `data-out` in scroll progress (0–1). Each fade
 - **Final:** `~0.88 → 1.01`, over the held last second.
 - Leave gaps of at least 0.05 between windows, so the footage gets moments to itself.
 
+**Fast tracking shots** (a camera sliding past several subjects, like the Angaar grill → karahi → burger film) leave each side free for only about 0.1 of progress. Subjects enter on one side and leave by the other. What works:
+- **Card side:** put a card on the side the subject is heading away from, or over the less important thing (naan, not the karahi).
+- **Transition cards:** between two subjects the middle of the frame is often empty. A centred card (`.chapter--center { left: 0; right: 0; margin: auto; }`) fits there.
+- **Intro vs first card:** never let the intro and the first card crossfade on the same side. Hand the first subject's moment to the intro, and bring the card in once the intro has fully faded.
+- **Final text:** shrink it and set it low (for example `bottom: 6vh`, `font-size: clamp(54px, 6.6vw, 112px)`) so it sits on the tray or counter, not across the product.
+- **Track steps:** retime the tracker's `STEP_AT` to when each subject appears.
+
+## 3b. Check it on the real page
+
+```bash
+node <skill>/scripts/hero-strip.mjs <scratch>/strip-desk.jpg http://localhost:<port>/ 1440x900
+node <skill>/scripts/hero-strip.mjs <scratch>/strip-phone.jpg http://localhost:<port>/ 390x844 0,0.05,0.1,0.15,0.2,0.25 6
+```
+
+Each tile is a real screenshot at that progress, with the overlays as a visitor sees them. Look for three problems:
+- cards over the subject;
+- two chapters visible at once;
+- phone crops that show only empty counter. When the subject jumps across the frame, add a mobileFocus key that holds the old subject a moment longer and then swings.
+
 ## 4. mobileFocus
 
 `hero.mobileFocus` in `js/config.js` is a list of `[progress, subjectX]` keys, sorted by progress. The engine eases between them with smoothstep, and only when the canvas is portrait-ish (aspect < 1.2). Landscape screens see the whole frame untouched.
@@ -45,7 +64,7 @@ Chapter windows are `data-in` / `data-out` in scroll progress (0–1). Each fade
 mobileFocus: [[0, 0.72], [0.2, 0.68], [0.28, 0.62], [0.4, 0.54], [0.47, 0.55], [0.53, 0.6], [0.58, 0.62], [0.65, 0.5], [0.72, 0.46], [1, 0.48]],
 ```
 
-Add a key wherever the subject changes direction. 6–10 keys is typical. Add a one-line comment saying what the keys follow; the next person to re-time it will need it. Then check at 390×844 with the audit's hero screenshots that the subject stays in shot.
+Add a key wherever the subject changes direction. 6–10 keys is typical. Add a one-line comment saying what the keys follow; the next person to re-time it will need it. Then check at 390×844 with `hero-strip.mjs` (section 3b) that the subject stays in shot.
 
 ## 5. Host the frames
 

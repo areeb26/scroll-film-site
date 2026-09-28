@@ -90,6 +90,7 @@ Follow `references/film-timing.md`:
 1. Copy the MP4 to `video/hero.mp4` and run `scripts/make-frames.sh video/hero.mp4`. This extracts the 1920 and 1280 sets, sets `frames.count` and makes the last frame the poster.
 2. Run `bash <skill>/scripts/frame-sheet.sh video/hero.mp4 <scratch>/grid.jpg` and Read the gridded sheet.
 3. From the sheet, retime the chapter windows and write `hero.mobileFocus`, the subject's x-position over time for portrait phones.
+   Then check the result with `node <skill>/scripts/hero-strip.mjs <scratch>/strip.jpg http://localhost:<port>/ 1440x900` and again at `390x844`. This is the real page (film plus overlays) at 0.05 steps, labelled by progress. Read it and repeat until no card covers the subject and no two chapters crossfade on top of each other.
 4. Run `scripts/deploy-frames-pages.sh <project>-frames`.
 5. Commit, push, `vercel deploy --prod --yes`, then audit the live site. The report's `frames` line should show every frame loading from `pages.dev`.
 
