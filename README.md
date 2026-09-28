@@ -11,6 +11,16 @@ Sites built with this pipeline so far: a watch wholesaler, a toy shop with a car
 
 ## Install
 
+With the [skills](https://www.npmjs.com/package/skills) CLI (works for Claude Code, Cursor, Codex, OpenCode and other agents):
+
+```bash
+npx skills add areeb26/scroll-film-site
+```
+
+Add `-g -a claude-code -y` to install it globally for Claude Code without prompts.
+
+Or clone it straight into Claude Code's skills folder:
+
 ```bash
 git clone https://github.com/areeb26/scroll-film-site.git ~/.claude/skills/scroll-film-site
 ```
