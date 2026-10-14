@@ -1,5 +1,7 @@
 # scroll-film-site: a Claude Code skill
 
+By [Areeb Ahmed Khan (The Ai Khan)](https://www.theaikhan.com) · step-by-step guide: [theaikhan.com/guides/scroll-film-site](https://www.theaikhan.com/guides/scroll-film-site) · MIT licensed
+
 This skill builds and ships **client demo websites with a cinematic, scroll-scrubbed AI video hero**, the kind of site that makes a small business look like a big brand.
 
 - **Hero.** A Veo 3 film is cut into WebP frames and painted onto a canvas as the visitor scrolls. Headline "chapters" fade in over the footage, and on portrait phones the crop pans to follow the subject.
@@ -108,3 +110,7 @@ assets/template/         starter site: hero engine, config, base CSS, frame scri
 - Client sites default to **private** repos.
 - Stats and reviews on placeholder brands are sample content and are listed in each site's README. For real clients, the skill asks for real reviews instead of inventing them.
 - Currency and payment defaults are tuned for Pakistan (PKR, cash on delivery, JazzCash / Easypaisa), and the skill changes them for other markets.
+
+## License
+
+MIT, see [LICENSE](LICENSE). Free to use for your own and your clients' sites. More skills: [theaikhan.com/skills](https://www.theaikhan.com/skills).
